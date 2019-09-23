@@ -9,6 +9,8 @@
 - [X] 文字内容安全检测 //云开发api
 - [X] 解析公众号文章链接
 
+## 在线示例
+![小程序码](./miniprogram/image/md/qrcode.jpg)
 ## 本地运行
 
 1. `git clone https://github.com/chenaey/circle-_of_-friend_demo.git `
