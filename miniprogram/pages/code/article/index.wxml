@@ -1,0 +1,9 @@
+<text class="title">{{html.msg_title}}</text>
+<view class="row">
+  <text class="copyright" wx:if="{{html.msg_has_copyright}}">原创:</text>
+  <text class="author" wx:if="{{html.msg_author}}">{{html.msg_author}}</text>
+  <text class="account_name">{{html.account_name}}</text>
+  <text class="time_str">{{html.msg_publish_time_str}}</text>
+</view>
+
+<rich-text nodes='{{html.msg_content}}'></rich-text>

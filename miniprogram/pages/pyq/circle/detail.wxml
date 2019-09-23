@@ -1,0 +1,104 @@
+<view class='header'>
+  <text bindtap="toHome" class='iconfont icon-arrow-right1 r-left'></text>
+  <text bindtap="toEdit" class='iconfont icon-xiangji r-right'></text>
+</view>
+
+<view class="top-relate">
+  <image class="img-top" mode="widthFix" src="/image/pyq/1.jpg"> </image>
+</view>
+
+<view class="tab">
+  <block wx:for="{{tabList}}" wx:key='{{index}}'>
+    <view bindtap='bindChangeTab' data-index='{{index}}' class='{{item.isSelect?"tab-se":"tab-no"}}'>{{item.name}}</view>
+  </block>
+</view>
+
+
+
+<view class="top-circle">
+  <view class="circle" wx:for="{{wallData}}" wx:key="{{index}}" wx:for-item="itemName" wx:for-index="indexN">
+    <view class="row">
+      <view>
+        <image class="userhead" src="{{itemName.userInfo.avatarUrl}}"></image>
+      </view>
+      <view class="col">
+        <view class="username" style="font-weight:600;">{{itemName.userInfo.nickName}}</view>
+        <!-- bindlongtap="copyText" -->
+        <view class="content" data-text="{{itemName.content}}">
+          <text>{{itemName.content}}</text>
+
+        </view>
+        <view class="li-imgs">
+          <block wx:for="{{itemName.images}}" wx:key="{{index}}">
+            <view>
+              <image data-images="{{itemName.images}}" bindtap="previewImage" id="{{item}}" class="li-img-one" src="{{item}}" mode="aspectFill" />
+            </view>
+          </block>
+        </view>
+        <view class='timeArea'>
+          <text>{{itemName.time}}</text>
+          <text style="padding-left:14rpx;">{{itemName.tab}}</text>
+
+          <text bindtap="deletePyq" data-item='{{itemName}}' data-index="{{indexN}}" class="timeArea-delete" wx:if='{{openid===itemName._openid}}'>删除</text>
+          <text bindtap="adminDeletePyq" data-item='{{itemName}}' data-index="{{indexN}}" class="admin-delete" wx:if='{{openid===adminOpenid}}'>置顶</text>
+          <text bindtap="adminDeletePyq" data-item='{{itemName}}' data-index="{{indexN}}" class="admin-delete" wx:if='{{openid===adminOpenid}}'>删除</text>
+
+          <view class='timeArea-right'>
+            <view class='zan-pinglun' wx:if="{{showZan == indexN}}">
+              <button data-item='{{itemName}}' data-index="{{indexN}}" class="share-btn" open-type="share" size='mini'>分享</button>
+
+              <text class='iconfont icon-xin' data-indexN="{{indexN}}" data-_id="{{itemName._id}}" catchtap='dianzan'> 赞</text>
+              <text bindtap="showPinLun" class='iconfont icon-pinglun'>留言</text>
+            </view>
+            <image class="dd-icon" src="/image/pyq/dd-icon.png" data-index="{{indexN}}" bindtap="toShowZan"></image>
+
+          </view>
+        </view>
+        <view class="comm-zan">
+          <!-- 点赞 -->
+          <view wx:if='{{itemName.zans.length>0}}'>
+            <view class="r"></view>
+            <view class="zan">
+              <image class="love-icon" src="/image/pyq/love-icon.png"></image>
+              <text class="like">{{itemName.zanText}}</text>
+            </view>
+          </view>
+          <!-- 留言 -->
+          <view wx:if='{{itemName.comments.length>0}}'>
+            <view wx:if='{{itemName.zans.length<=0}}' class="r"></view>
+
+            <view class="comments">
+              <view wx:for="{{itemName.comments}}" wx:key='{{index}}' bindtap="bindComment" data-index="{{index}}" data-indexN="{{indexN}}" data-name="{{item.username}}">
+
+                <view class="tt-row" wx:if='{{!item.toName}}'>
+                  <text class="blueColor">{{item.username+': '}}</text>
+                  <text class="noblueColor">{{item.comment}}</text>
+                </view>
+
+                <view wx:if='{{item.toName}}'>
+                  <text class="blueColor">{{item.username}}</text>
+                  <text class="noblueColor"> 回复</text>
+                  <text class="blueColor">{{item.toName+': '}}</text>
+                  <text class="noblueColor">{{item.comment}}</text>
+                </view>
+              </view>
+
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+<view wx:if='{{showPinLun}}'>
+  <form report-submit='true' bindsubmit='submitComment'>
+    <view class='liuyan'>
+      <input class='input' auto-focus cursor-spacing="32rpx" value='{{commentValue}}' bindinput='getcomment' placeholder='{{placeholderPL}}'></input>
+      <button class='icon' form-type='submit'>发送</button>
+    </view>
+  </form>
+</view>

@@ -1,0 +1,108 @@
+/* pages/edit/edit.wxss */
+
+page {
+  line-height: 1.6;
+  font-family: -apple-system-font, Helvetica Neue, sans-serif;
+}
+
+.tab {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: Arial, sans-serif;
+  color: #4c5154;
+  justify-content: space-around;
+  background-color: #fff;
+  padding: 8rpx 8rpx 38rpx 22rpx;
+  font-size: 28rpx;
+  border-bottom: 2rpx solid #f7f7f7;
+}
+
+.tab-tip {
+  padding-left: 32rpx;
+  padding-bottom: 18rpx;
+  padding-top: 20rpx;
+  font-size: 32rpx;
+}
+
+.tab-se {
+  color: #fff;
+  background-color: #06ad56;
+  padding: 2rpx 10rpx;
+}
+
+.tab-no {
+  background-color: #fff;
+  color: #4c5154;
+  padding: 2rpx 10rpx;
+}
+
+.edit-header {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  height: 30pt;
+  font-size: 11pt;
+}
+
+.header-delive {
+  position: absolute;
+  right: 32rpx;
+  border-radius: 0;
+  font-size: 28rpx;
+  font-weight: 600;
+  background-color: #06ad56;
+  color: #fff;
+}
+
+.header-cancel {
+  position: absolute;
+  left: 32rpx;
+  border-radius: 0;
+  font-size: 28rpx;
+  background-color: #fff;
+}
+
+.edit-main, .edit-footer {
+  padding: 32rpx;
+}
+
+.edit-text {
+  min-height: 180rpx;
+  overflow-y: scroll;
+  font-size: 28rpx;
+  line-height: 20pt;
+  color: #353535;
+  width: 100%;
+}
+
+.article-main {
+  display: flex;
+  flex-direction: column;
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+}
+
+.article-text {
+  font-size: 28rpx;
+  line-height: 20pt;
+  color: #353535;
+  width: 100%;
+  padding: 12rpx 12rpx 12rpx 0;
+  border-bottom: 2rpx solid #ececec;
+}
+
+.article {
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
+  align-content: center;
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+}
+
+.msg_cover {
+  width: 92rpx;
+  height: 92rpx;
+  padding-right: 10rpx;
+}

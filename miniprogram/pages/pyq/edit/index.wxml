@@ -1,0 +1,65 @@
+<view class='edit-header'>
+  <button class='header-cancel' bindtap="saveEditOrNot" size="mini">取消</button>
+  <button class='header-delive' size="mini" bindtap="formSubmit">发布</button>
+</view>
+
+<view class='edit-main'>
+  <textarea class='edit-text' auto-height placeholder='这一刻的想法...' placeholder-style='color:#888' bindinput="getInputValue"></textarea>
+</view>
+
+<view class="weui-cells">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <view class="weui-uploader">
+        <view class="weui-uploader__hd">
+          <view class="weui-uploader__overview">
+            <view class="weui-uploader__title">图片上传</view>
+            <view class="weui-uploader__info">{{files.length}}/9</view>
+          </view>
+          <view class="weui-uploader__tips" wx:if="{{files.length>0}}">
+            长按删除
+          </view>
+        </view>
+        <view class="weui-uploader__bd">
+          <view class="weui-uploader__files" id="uploaderFiles">
+            <block wx:for="{{files}}" wx:key="{{index}}">
+              <view class="weui-uploader__file" bindlongtap="deleteImg" data-index="{{index}}" bindtap="previewImage" id="{{item}}">
+                <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+              </view>
+            </block>
+          </view>
+          <view class="weui-uploader__input-box" wx:if="{{files.length<9}}">
+            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='tab-tip'>选择标签</view>
+<view class="tab">
+  <block wx:for="{{tabList}}" wx:key='{{index}}'>
+    <view bindtap='bindChangeTab' data-index='{{index}}' class='{{item.isSelect?"tab-se":"tab-no"}}'>{{item.name}}</view>
+  </block>
+</view>
+
+<view wx:if='{{openid===adminOpenid}}'>
+  <view class='tab-tip'>选择身份</view>
+  <view class="tab">
+    <block wx:for="{{sendList}}" wx:key='{{index}}'>
+      <view bindtap='bindChangeUser' data-index='{{index}}' class='{{item.isSelect?"tab-se":"tab-no"}}'>{{item.name}}</view>
+    </block>
+  </view>
+</view>
+
+<view class='tab-tip'>插入公众号文章</view>
+<view class='article-main'>
+  <input class='article-text' placeholder='请在此处粘贴公众号文章链接' placeholder-style='color:#888' bindinput="getInputGzh"></input>
+</view>
+
+<view class="article">
+  <image class="msg_cover" src="{{article.msg_cover}}"></image>
+  <text>{{article.title}}</text>
+</view>

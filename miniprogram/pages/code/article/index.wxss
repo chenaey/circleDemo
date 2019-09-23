@@ -1,0 +1,51 @@
+page {
+  background-color: #fff;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  font-weight: 600;
+  font-size: 34rpx;
+  padding: 32rpx 20rpx;
+}
+
+.copyright {
+  color: #999;
+  font-size: 28rpx;
+  padding-right: 10rpx;
+}
+
+.time_str {
+  color: #999;
+  font-size: 28rpx;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin-left: 16rpx;
+  font-size: 34rpx;
+  padding-bottom: 32rpx;
+}
+
+.author {
+  color: #576b95;
+  font-size: 28rpx;
+  padding-right: 16rpx;
+}
+
+.account_name {
+  color: #576b95;
+  font-size: 28rpx;
+  padding-right: 16rpx;
+}
+
+.rich_pages {
+  max-width: 100%;
+  height: auto;
+}
+
+.bottom {
+  padding-bottom: 32rpx;
+}
