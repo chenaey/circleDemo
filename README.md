@@ -13,7 +13,7 @@
 ![小程序码](./miniprogram/image/md/qrcode.jpg)
 ## 本地运行
 
-1. `git clone https://github.com/chenaey/circle-_of_-friend_demo.git `
+1. `git clone https://github.com/chenaey/circleDemo.git`
 2. 在微信开发者工具中打开项目文件
 3. 开通云开发
 4. 将appid填写为你的appid
